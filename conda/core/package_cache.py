@@ -565,7 +565,7 @@ class ProgressiveFetchExtract(object):
                     download_total = 0
                     progress_update_cache_axn = None
 
-                cache_axn.execute(progress_update_cache_axn)
+                cache_axn.execute(None)
 
             if extract_axn:
                 extract_axn.verify()
@@ -573,7 +573,7 @@ class ProgressiveFetchExtract(object):
                 def progress_update_extract_axn(pct_completed):
                     progress_bar.update_to((1 - download_total) * pct_completed + download_total)
 
-                extract_axn.execute(progress_update_extract_axn)
+                extract_axn.execute(None)
 
         except Exception as e:
             if extract_axn:
